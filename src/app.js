@@ -176,7 +176,7 @@
      <section class="index">
       <img src="imagenes/boy.png" alt="user" width="45" height="45" class="user">
       <p>Bienvenido</p>
-      <textarea name="Crea una publicación" id="createPost" class="createPost" cols="50" rows="15" placeholder="Cuenta la historia de un lugar que conoces"></textarea>
+      <textarea name="Crea una publicación" id="createPost" class="createPost" cols="25" rows="5" placeholder="Cuenta la historia de un lugar que conoces"></textarea>
       <article class="controlsContainer">
         <img src="imagenes/image.png" alt="Subir foto" width="35" height="35">
         <img src="imagenes/location.png" alt="Localización" width="35" height="35">
