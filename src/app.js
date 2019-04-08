@@ -1,6 +1,6 @@
  // Initialize Firebase
  var config = {
-    }   apiKey: "AIzaSyBv4z2_UHScB0OyMO3WtdoAJAMGGkIGCd8",
+   apiKey: "AIzaSyBv4z2_UHScB0OyMO3WtdoAJAMGGkIGCd8",
    authDomain: "social-network-mangocoders.firebaseapp.com",
    databaseURL: "https://social-network-mangocoders.firebaseio.com",
    projectId: "social-network-mangocoders",
