@@ -168,7 +168,7 @@
          <li><a href="#"><i class="fas fa-user fa-lg" style="color: #ffffff;"></i></a></li>
          <li><a href="#"><i class="fas fa-calendar-plus fa-lg" style="color: #ffffff;"></i></a></li>
          <li><a href="#"><i class="fas fa-bookmark fa-lg" style="color: #ffffff;"></i></a></li>
-         <li><button id="closeBtn" onclick="closeSession();">Cerrar Sesión</button>
+         <li><a href="#" type="button" onclick="closeSession();"><i class="fas fa-sign-out-alt fa-2x"></i></a></li>
        </ul>
        </nav>
      </header>
