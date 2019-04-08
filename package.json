@@ -1,0 +1,19 @@
+{
+  "name": "red-social",
+  "version": "1.0.0",
+  "description": "Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes\r sociales han invadido nuestras vidas. Las amamos y/u odiamos, y muchos no podemos vivir sin ellas.",
+  "main": "index.js",
+  "scripts": {
+    "htmlhint" : "htmlhint src/*.html",
+    "eslint": "eslint --ext .js src/",
+    "pretest": "npm run eslint --silent && npm run htmlhint",
+    "test": "jest"
+  },
+  "author": "Jess",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.15.3",
+    "htmlhint": "^0.11.0",
+    "jest": "^24.5.0"
+  }
+}

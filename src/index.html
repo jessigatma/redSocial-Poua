@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Poua</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <section id="login" class="container active" data-tab-for="login">
+      <img alt="logo Poua" src="imagenes/inicio-banner.png" class="desktop-index" width="100%" />
+      <img alt="logo Poua" src="imagenes/inicio-mobile.png" class="mobile-index" width="100%" />
+      <img alt="Texto Poua" src="imagenes/poua-text-mobile.png" class="mobile-index" width="100%" />
+      <section class="inputs-buttons-img">
+        <form>
+          <button class="googleBtn">
+            <a class="google" id="loginGoogle"><i class="fab fa-google"></i> Iniciar sesión con Google</a>
+          </button>
+          <div>
+            <input type="email" id="email2" class="input" placeholder="Correo"></input>
+          </div>
+          <input type="password" id="contrasena2" class="input" placeholder="Contraseña"></input>
+          <div id="message">
+            <p></p>
+          </div>
+          <button id="loginBtn" class="btn">INICIAR</button>
+          <div class="register">
+            <a id="createAccount" class="createAccount">CREAR CUENTA</a>
+          </div>
+        </form>
+      </section>
+    </section>
+
+    <section id="register" class="container hide" data-tab-for="register">
+      <img alt="logo Poua" src="imagenes/inicio-banner.png" class="desktop-index" width="100%" />
+      <img alt="" src="imagenes/inicio-mobile.png" class="mobile-index" width="100%" />
+      <img alt="" src="imagenes/poua-text-mobile.png" class="mobile-index" width="100%" />
+      <section class="inputs-buttons-img">
+        <form>
+
+          <button class="googleBtn">
+            <a class="google" id="loginGoogle1"><i class="fab fa-google"></i>Registrarse con Google</a>
+          </button>
+          <div>
+            <input class="input" id="name" type="text" placeholder="Nombre" required></input>
+          </div>
+          <input type="email" id="email" class="input" placeholder="Ingresa un correo" required></input>
+          <div>
+            <input type="password" id="contrasena" class="input" placeholder="Ingresa una contraseña" required></input>
+          </div>
+          <div id="message2">
+            <p></p>
+          </div>
+          <button id="registerBtn" class="btn">REGISTRARSE</button>
+          <div class="register">
+            <a id="loginBtn1" class="createAccount">INICIAR</a>
+          </div>
+        </form>
+      </section>
+    </section>
+
+    <div id="wall" class="hide" data-tab-for="wall">
+
+    </div>
+
+
+    
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+    <script src="app.js"></script>
+
+  </body>
+
+</html>

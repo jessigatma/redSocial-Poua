@@ -1,0 +1,263 @@
+El html del ejercicio de pushState y popstate
+ <!-- <body class="container">
+    <h1>History pushState, popstate</h1>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" href="" data-tab-for="content-1">Tab-1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" data-tab-for="content-2">Tab-2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" data-tab-for="content-3">Tab-3</a>
+        </li>
+      </ul>
+      <div class="content">
+          <p id="content-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi atque earum sit excepturi quisquam, eos reprehenderit doloremque culpa sunt id debitis corporis mollitia at qui dicta enim repellat nostrum eius. Placeat neque voluptas accusamus fugiat ipsum, adipisci totam excepturi ratione dolore sequi nesciunt culpa! Quae vitae suscipit placeat amet animi!</p>
+          <p id="content-2" class="hide">Laborum, beatae deleniti. Sint placeat vel vero aspernatur itaque, aliquid facilis. Incidunt error in sit, expedita vel deleniti dignissimos sapiente distinctio doloribus mollitia vitae quisquam accusamus eos ratione quidem cumque ullam odit reiciendis vero? Delectus aspernatur fuga eos voluptate ratione atque incidunt, cumque facere aliquid, soluta deleniti, facilis perspiciatis quam?</p>
+          <p id="content-3" class="hide">Aut nobis sequi officiis commodi. Ipsa quae natus maxime officiis reprehenderit facere enim id dolore expedita numquam, error ratione repellendus sit, quis animi nobis impedit dignissimos officia suscipit. Quaerat numquam laudantium explicabo debitis omnis corporis, sunt cumque nulla odio, libero doloremque veniam nobis voluptate incidunt qui nisi quisquam distinctio quam?</p>
+      </div>   -->
+
+El javascript del ejercicio pushState y popstate
+
+/*
+let tabs = document.querySelectorAll("[data-tab-for]");
+let contents = document.querySelectorAll(".content>p");
+
+tabs.forEach(tab => tab.addEventListener('click', tabClicked));
+window.onpopstate = checkState;
+
+history.replaceState({
+    tabForId: tabs[0].dataset.tabFor
+}, null, "tab-"+tabs[0].dataset.tabFor);
+
+function showContent(id) {
+    contents.forEach(content => {
+        if (content.getAttribute('id') === id) content.classList.remove('hide');
+        else content.classList.add('hide');
+    });
+    tabs.forEach(tab => {
+        if (tab.dataset.tabFor === id) tab.classList.add("active");
+        else tab.classList.remove("active");
+    });
+}
+
+function tabClicked(e) {
+    const contentId = e.target.dataset.tabFor; //el target nos dice el evento que detona lo otro
+    e.preventDefault();
+    showContent(contentId);
+    history.pushState({
+        tabForId: contentId
+    }, null, "tab-"+contentId);
+}
+
+function checkState(e) {
+    // page reload
+    if(e.state) {
+        console.log(e.state.tabForId);
+        showContent(e.state.tabForId);
+    }
+} 
+*/
+
+
+function back(url) {
+    if (history.length > 2) {
+        // if history is not empty, go back:
+        window.History.back();
+    } else if (url) {
+        // go to specified fallback url:
+        window.History.replaceState(null, null, url);
+    } else {
+        // go home:
+        window.History.replaceState(null, null, '/');
+    }
+}
+
+-------------------------------------------------------
+
+firebase.auth().onAuthStateChanged( function(firebaseUser) {
+  // TODO create functions handleSignedInUser and handleSignedOutUser
+  console.log("DEBUG_MSG: auth state change event");
+  
+  if (firebaseUser) {
+    console.log(firebaseUser);
+    btnLogOut.style.visibility = "visible";
+    handleSignedInUser(firebaseUser);
+  } else {
+    console.log("not logged in");
+    btnLogOut.style.visibility = "hidden";
+    handleSignedOutUser();
+  }
+});
+
+function handleSignedInUser(firebaseUser) {
+    //location.hash = "#timeline";
+    history.pushState({
+    tabForId: tabs[2].dataset.tabFor
+    }, null, tabs[2].dataset.tabFor);
+    
+}
+
+function handleSignedOutUser() {
+    //location.hash = "#login";
+    history.replaceState({
+ tabForId: tabs[0].dataset.tabFor
+}, null, tabs[0].dataset.tabFor);
+}
+---------------------------------- con comentarios-----
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyBv4z2_UHScB0OyMO3WtdoAJAMGGkIGCd8",
+    authDomain: "social-network-mangocoders.firebaseapp.com",
+    databaseURL: "https://social-network-mangocoders.firebaseio.com",
+    projectId: "social-network-mangocoders",
+    storageBucket: "social-network-mangocoders.appspot.com",
+    messagingSenderId: "392739589853"
+    };
+firebase.initializeApp(config);
+
+//---------------- window.history -------------------------
+
+let tabs = document.querySelectorAll("[data-tab-for]");
+
+
+// history.replaceState({
+//  tabForId: tabs[0].dataset.tabFor
+// }, null, tabs[0].dataset.tabFor);
+
+function showRegister(){
+
+    tabs[1].classList.remove('hide');
+    tabs[1].classList.add('active');
+ 
+    tabs[0].classList.remove('active');
+    tabs[0].classList.add('hide');
+
+    // history.pushState({
+    // tabForId: tabs[1].dataset.tabFor
+    // }, null, tabs[1].dataset.tabFor);
+    location.hash='#register';
+}
+document.getElementById("createAccount").addEventListener("click",showRegister,false);
+
+// ------------------------ LOGIN, SIGNUP, CLOSE SESSION----------------
+
+function registrar(){
+    const email = document.getElementById('email').value;
+    const contrasena = document.getElementById('contrasena').value;
+
+    firebase.auth().createUserWithEmailAndPassword(email, contrasena)
+    .catch(function(error) {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ...
+      });
+      
+}
+
+function ingreso(){
+    const email2 = document.getElementById('email2').value;
+    const contrasena2 = document.getElementById('contrasena2').value;
+
+    firebase.auth().signInWithEmailAndPassword(email2, contrasena2)
+    .catch(function(error) {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode + errorMessage);
+        alert('Tu usuario o contraseña es incorrecto');
+        // ...
+      });
+      
+}
+
+function observador(){
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          // User is signed in.
+         //console.log('existe usuario activo');
+         aparece(); //aparece esta función cuando está activo el usuario
+          const displayName = user.displayName;
+          const email = user.email;
+          const emailVerified = user.emailVerified;
+          const photoURL = user.photoURL;
+          const isAnonymous = user.isAnonymous;
+          const uid = user.uid;
+          const providerData = user.providerData;
+          handleSignedInUser(firebaseUser);
+                   // ...
+        } else {
+          // User is signed out.
+          // ...
+         // console.log('no existe usuario activo')
+         handleSignedOutUser();
+        }
+      });
+}
+observador();
+
+function aparece(){
+
+    tabs[2].classList.remove('hide'); //remueve el hide de mi class para el content
+    tabs[2].classList.add('active'); 
+ 
+    tabs[0].classList.remove('active'); // remuevo el active de mi class del register para que no esté junto al contenido
+    tabs[0].classList.add('hide');
+
+    // history.pushState({ //me muestra el nombre en la url, en este caso register 
+    // tabForId: tabs[2].dataset.tabFor // es la posición donde me encuento
+    // }, null, tabs[2].dataset.tabFor); //le doy el nombre a la url
+
+    const contenido =  document.getElementById('contenido');
+    contenido.innerHTML = ` <p>Bienvenido</p>
+    <button onclick="cerrar();">Cerrar Sesión</button>`;
+    location.hash='#content';
+} 
+
+function cerrar(){
+    firebase.auth().signOut()
+    .then(function(){
+        console.log('saliendo...');
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+}
+
+function handleSignedInUser(firebaseUser) {
+    location.hash = "#register";
+}
+
+function handleSignedOutUser() {
+    location.hash = "#login";
+}
+
+// window.onpopstate = function(event){
+//     console.log(windows.location.pathname)
+//     if(window.location.pathname ==='login'){
+//         window.login.registrar();    
+//     } else if(window.location.pathname.split('#') === '/' ){
+//         let user = firebase.auth().currentUser;
+//         ingreso(user);
+//     }
+// };
+
+/*
+----tomar el mensaje y guardarlo---
+document.getElementById("message1").value;
+document.getElementById("message2").value=cifrado;
+document.getElementById("chooseCode").innerHTML = "cifrado"
+document.getElementById("encodeButton").addEventListener("click",llamarencode,false);
+
+
+----contador de likes---
+
+var contador = 0;
+function cambiar(){
+document.getElementById('contador').innerHTML = contador += 1;
+}
+
+*/

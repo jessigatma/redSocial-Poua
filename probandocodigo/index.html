@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Poua</title>
+       
+</head>
+
+<body>
+
+  <div id= "login" class= "active" data-tab-for="login"> 
+     <h4>Ingreso de usuarios</h4>
+     <input id="email2" type="email" placeholder="ingresa email" >
+     <input id="contrasena2"  type="password" placeholder="ingresa contraseña">
+     <button onclick="ingreso();">Iniciar</button> <!--quitar el onclick de html-->
+     <button id="createAccount">Crear Cuenta</button>
+  </div>
+   
+  <div id="register" class="hide" data-tab-for="register">
+    <h4 >Registro de usuarios</h4> 
+    <input id="email" type="email" placeholder="ingresa email">
+    <input id="contrasena"  type="password" placeholder="ingresa contraseña">
+    <button onclick="registrar();">Registrarse</button>
+  </div>  
+   
+
+  <div id="contenido" class="hide" data-tab-for="content">
+    
+  </div> 
+    
+
+    <!-- 
+      AREA DE TEXTO
+    
+     <textarea  id="message1" rows="10" cols="80"> </textarea> 
+      <div>
+        <select id="publicoprivado">Privacidad</select>
+        <button id="publicar">Publicar</button></div>
+      </div> 
+      
+      <textarea  id="message2" rows="10" cols="80"> </textarea> 
+      <div>
+        <button id="like" value="+1" onClick="cambiar();">LIKE</button>
+        <div id="contador">0</div>
+        <button id="eliminar">Eliminar</button>
+        <button id="editar">Editar</button>
+      </div> 
+
+
+      CONTADOR LIKES
+      <div id="cuadrito"><center>
+  <div id="contador">0</div></center>
+    <input type="button" id="boton" value="+1" onClick="cambiar();">
+      -->
+    
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <script src="app.js"></script>
+     <!--<script src="server.js"></script> -->
+
+</body>
+</html>  
